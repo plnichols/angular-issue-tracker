@@ -1,7 +1,6 @@
 var app = angular.module('app', []);
 
 
-
 // Controller
 // Set model for data binding between issues and inputs
 // Functions to reset / update search filters
