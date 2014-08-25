@@ -1,4 +1,4 @@
-#Angular-Issue-Tracker
+#Issue Tracker
 AngularJS app to display a list of issues or bugs (issue tracker).
 Issues/bugs can be filtered using search field and/or dropdown select.
 Data is stored in a JSON file and is requested with Ajax.
