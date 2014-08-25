@@ -1,0 +1,264 @@
+/*------------------------------------*\
+    Header
+\*------------------------------------*/
+.header {
+    margin-bottom: 2em;
+    padding: 1em;
+    border: 1px solid #bbb;
+    border-top: 0;
+    text-align: center;
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #F7F7F7),color-stop(1, #ddd));
+    background-image: -o-linear-gradient(bottom, #F7F7F7 0%, #ddd 100%);
+    background-image: -moz-linear-gradient(bottom, #F7F7F7 0%, #ddd 100%);
+    background-image: -webkit-linear-gradient(bottom, #F7F7F7 0%, #ddd 100%);
+    background-image: -ms-linear-gradient(bottom, #F7F7F7 0%, #ddd 100%);
+    background-image: linear-gradient(to bottom, #F7F7F7 0%, #ddd 100%);
+    -webkit-border-bottom-right-radius: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    -moz-border-radius-bottomright: 4px;
+    -moz-border-radius-bottomleft: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.header .title {
+    display: inline-block;
+    font-size: 26px;
+    padding-left: 1em;
+    margin: 0 0 0 1em;
+    border-left: 1px dotted #aaa;
+}
+.header .logo {
+    margin: 0 auto;
+    vertical-align: top;
+}
+@media (max-width: 500px) {
+    .header .title {
+        display: block;
+        padding: 0.5em 0 0 0;
+        margin: 0 auto;
+        border-left: 0;
+    }
+}
+
+
+
+
+/*------------------------------------*\
+    Filters
+\*------------------------------------*/
+.filters {
+    background: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding-top: 15px;
+}
+.filters-group {
+    margin-bottom: 1.5em;
+}
+.filters-label {
+    text-transform: capitalize;
+}
+.filters-reset,
+.filters-reset-all {
+    font-size: 0.75em;
+    cursor: pointer;
+    color: #B70000;
+    margin: -0.5em 0 0 0;
+}
+.filters-reset-all {
+    float: right;
+}
+.filters-reset {
+    padding-left: 0.75em;
+}
+.filters-reset:active,
+.filters-reset:hover {
+    color: red;
+    text-decoration: underline;
+}
+@media (max-width: 500px) {
+    .filters-box {
+        width: 100%;
+        margin: 0 0 0.8em 0;
+    }
+    .filters-box:last-child {
+        margin: 0;
+    }
+    .filters-label {
+        float: left;
+        margin-top: 0.4em;
+    }
+    .filters-reset {
+        float: left;
+        margin-top: 0.9em;
+    }
+    .filters-box .select {
+        float: right;
+        width: 60%;
+    }
+}
+@media (max-width: 350px) {
+    .filters-box .select {
+        float: left;
+        width: 100%;
+    }
+}
+
+
+/*------------------------------------*\
+    Loading
+\*------------------------------------*/
+.list-loading {
+    padding: 5em;
+    text-align: center;
+}
+.issues-loaded .list-loading,
+.issues-not-found .list-loading {
+    display: none;
+}
+
+
+
+
+/*------------------------------------*\
+    Issues not found
+\*------------------------------------*/
+.list-not-found {
+    display: none;
+    padding: 5em;
+    text-align: center;
+}
+.issues-not-found .list-not-found {
+    display: block;
+}
+
+
+
+
+/*------------------------------------*\
+    List Issues
+\*------------------------------------*/
+.list-issues {
+    opacity: 0;
+    height: 0;
+    margin: 0;
+    display: block;
+    -moz-transition: opacity 0.5s ease;
+    -o-transition: opacity 0.5s ease;
+    -webkit-transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease;
+}
+.issues-loaded .list-issues {
+    display: table;
+    opacity: 1;
+    margin: 2em 0;
+}
+.list-issues .link {
+    color: #333;
+}
+.list-issues .link:hover {
+    color: #222;
+    cursor: pointer;
+    background: #e8e8e8;
+    padding: 3px 6px;
+    margin: -4px -7px;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+    text-decoration: none;
+}
+@media (max-width: 500px) {
+    .list-issues thead {
+        display: none;
+    }
+    .list-issues.table,
+    .list-issues tbody {
+        display: block;
+    }
+    .list-issues tr {
+        display: block;
+        float: left;
+        width: 100%;
+        border-top: 1px solid #ccc;
+        margin-bottom: 1em;
+    }
+    .list-issues tbody > tr > td {
+        display: block;
+        padding: 0.4em;
+        font-size: 0.85em;
+        border: 0;
+        float: left;
+    }
+    .list-issues .link:hover {
+        padding: 1px 4px;
+        margin: -2px -5px;
+    }
+    .list-issues .issue-id,
+    .list-issues .issue-description {
+        display: block;
+        font-weight: bold;
+        font-size: 0.9em;
+        background-color: #eee;
+        padding: 0.3em 0.5em;
+    }
+    .list-issues .issue-id {
+        width: 12%;
+    }
+    .list-issues .issue-description {
+        width: 88%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    .list-issues .issue-attribute {
+        width: 100%;
+        padding: 0.2em 0.4em;
+    }
+    .list-issues .issue-attribute:before {
+        display: inline-block;
+        padding-right: 1em;
+        font-weight: bold;
+    }
+    .list-issues .issue-category:before {
+        content: "Category: ";
+    }
+    .list-issues .issue-project:before {
+        content: "Project: ";
+    }
+    .list-issues .issue-assignee:before {
+        content: "Assignee: ";
+    }
+}
+
+
+
+
+/*------------------------------------*\
+    Copyright
+\*------------------------------------*/
+.copyright {
+    padding: 2em;
+    color: #999;
+    font-size: 0.75em;
+    text-align: center;
+}
+
+
+
+
+/*------------------------------------*\
+    Bootstrap Overrides
+\*------------------------------------*/
+.form-control::-moz-placeholder {       /* WebKit browsers */
+    color:#bbb;
+    opacity:1;
+}
+.form-control:-moz-placeholder {        /* Mozilla Firefox 4 to 18 */
+    color:#bbb;
+    opacity:1;
+}
+.form-control:-ms-input-placeholder {       /* Mozilla Firefox 19+ */
+    color:#bbb;
+}
+.form-control::-webkit-input-placeholder {      /* Internet Explorer 10+ */
+    color:#bbb;
+}

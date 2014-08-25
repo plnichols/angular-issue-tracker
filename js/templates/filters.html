@@ -1,0 +1,7 @@
+<div class="filters-box col-xs-4" ng-repeat="(key, value) in searchfilters">
+    <label class="filters-label" for="{{key}}">{{key}}</label>
+    <span class="filters-reset" ng-click="updateFilters(key, [])">[clear]</span>
+    <select class="select form-control input-sm" id="{{key}}" ng-model="searchfilters[key]">
+        <option ng-repeat="bug in Issues.bugs | orderBy:key | unique:key" ng-if="bug[key]">{{bug[key]}}</option>
+    </select>
+</div>

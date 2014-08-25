@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1">
+    <title>Issue Tracker</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body ng-app="app" class="container">
+
+    <div class="" ng-controller="IssueTrackerCtrl" ng-class="{'issues-loaded':Issues.bugs, 'issues-not-found':Issues.notfound}">
+
+        <header class="header">
+            <img class="logo" src="images/logo2.png" alt="Logo" width="98" height="28" />
+            <h1 class="title">Issue Tracker</h1>
+        </header>
+
+        <form class="filters container-fluid">
+
+            <span class="filters-reset-all" ng-click="resetAllFilters()">[reset all filters]</span>
+
+            <div class="filters-group">
+                <label for="filters-text">Filter issues by:</label>
+                <input id="filters-text" type="text" ng-model="searchfilters.$" class="form-control" placeholder="Ex: 005, Nick, Bug fixes...">
+            </div>
+
+            <div class="filters-group row">
+                <filters>
+                    <!-- Filters dropdown populated by Angular directive -->
+                </filters>
+            </div>
+        </form>
+
+        <div class="list-loading">
+            <img src="images/loading.gif" alt="Loading...">
+        </div>
+
+        <div class="list-not-found">
+            There was an error retrieving issues.</br>
+            Please try again later.
+        </div>
+
+        <list>
+            <!-- List populated by Angular directive -->
+        </list>
+        
+        <p class="copyright">2014 &copy; Issue Tracker</p>
+    </div>
+
+    <script type="text/javascript" src="js/vendor/angular.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
