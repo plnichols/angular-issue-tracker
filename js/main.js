@@ -1,6 +1,7 @@
 var app = angular.module('app', []);
 
 
+
 // Controller
 // Set model for data binding between issues and inputs
 // Functions to reset / update search filters
@@ -8,10 +9,13 @@ app.controller('IssueTrackerCtrl', function($scope, Issues) {
     $scope.Issues = Issues;
 
     // Define the initial state of searchfilters
+    // Setting search filter as undefined because:
+    //   - when using empty string "", Angular filters out issues with null values
+    //   - when using empty array [], Angular filters out all issues when doing a reset all AND input text was not empty
     $scope.searchfilters = {
-        category: [],
-        project: [],
-        assignee: []
+        category: undefined,
+        project: undefined,
+        assignee: undefined
     };
 
     $scope.updateFilters = function(type, string) {
@@ -20,7 +24,7 @@ app.controller('IssueTrackerCtrl', function($scope, Issues) {
 
     $scope.resetAllFilters = function() {
         for (var key in $scope.searchfilters) {
-            $scope.searchfilters[key] = [];
+            $scope.searchfilters[key] = undefined;
         }
     }
 });
@@ -44,6 +48,7 @@ app.factory('Issues', function($http) {
 });
 
 
+
 // Directive
 // Display list of issues from template file
 app.directive('list', function() {
@@ -53,6 +58,7 @@ app.directive('list', function() {
         templateUrl: 'js/templates/list.html'
     };
 });
+
 
 
 // Directive
@@ -67,7 +73,9 @@ app.directive('filters', function() {
 
 
 
-/* https://stackoverflow.com/questions/20222555/angularjs-remove-duplicate-elements-in-ng-repeat */
+// Filter
+// Removes duplicate values in array
+// https://stackoverflow.com/questions/20222555/angularjs-remove-duplicate-elements-in-ng-repeat
 app.filter('unique', function() {
     return function(collection, keyname) {
         var output = [], 
